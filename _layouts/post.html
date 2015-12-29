@@ -12,4 +12,22 @@ layout: default
     {{ content }}
   </article>
 
+  <div class="tags">
+    Tags:
+    <ul>
+      {% for tag in page.tags %}
+        <li>{{tag}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="categories">
+    Categories:
+    <ul>
+      {% for category in page.categories %}
+        <li>{{category}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
 </div>
