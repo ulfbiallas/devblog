@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<h1> Posts in category <i>{{page.category}}</i></h1>
+
+{% for post in site.posts %}
+
+  {% assign isPostInCategory = false %}
+  {% for category in post.categories %}
+    {% if category == page.category %}
+      {% assign isPostInCategory = true %}
+    {% endif %}
+  {% endfor %}
+
+  {% if isPostInCategory %}
+    <a href="{{ post.url }}">{{ post.date | date: "%Y-%m-%d" }}: {{ post.title }}</a><br>
+  {% endif %}
+
+{% endfor %}
+
