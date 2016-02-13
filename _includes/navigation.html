@@ -1,0 +1,24 @@
+<b>Navigation</b>
+
+<p>
+<u>Categories</u><br>
+
+{% assign categories = site.categories | sort %}
+{% for category in categories %}
+<a href="/categories/{{ category | first | slugify }}/">
+{{ category[0] | replace:'-', ' ' }} ({{ category | last | size }})
+</a><br>
+{% endfor %}
+</p>
+
+
+<p>
+<u>Tags</u><br>
+
+{% assign tags = site.tags | sort %}
+{% for tag in tags %}
+<a href="/tags/{{ tag | first | slugify }}/">
+{{ tag[0] | replace:'-', ' ' }} ({{ tag | last | size }})
+</a><br>
+{% endfor %}
+</p>
