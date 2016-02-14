@@ -8,15 +8,17 @@ title: Blog
 
 
 
-<ul>
 {% for post in site.posts %}
-
-<li>
-<h3>
-  <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-</h3>
-</li>
-
+  {% assign year = post.date | date: "%Y" %}
+  {% if year != date %}
+    {% unless forloop.first %}</ul>{% endunless %}
+    <b>{{ year }}</b>
+    <ul>
+    {% assign date = year %}
+  {% endif %}
+  <li><a href="{{ post.url }}">{{ post.date | date: "%d.%m.%Y" }}: {{ post.title }}</a></li>
+  {% if forloop.last %}
+    </ul>
+  {% endif %}
 {% endfor %}
-</ul>
 
