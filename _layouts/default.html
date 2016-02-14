@@ -4,17 +4,25 @@
   {% include head.html %}
 
   <body>
+    <div id="page">
 
-    {% include header.html %}
+      {% include header.html %}
 
+      <div id="mainpanel">
 
-    {{ content }}
+        <div id="content">
+          {{ content }}
+        </div>
 
+        <div id="navigation">
+          {% include navigation.html %}
+        </div>
 
-    {% include navigation.html %}
+      </div>
 
-    {% include footer.html %}
+      {% include footer.html %}
 
+    </div>
   </body>
 
 </html>
